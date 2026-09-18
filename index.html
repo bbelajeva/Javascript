@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+<title>Tech store</title>
+</head>
+<body
+ style="background-color:rgba(69, 7, 83, 0.755);">
+<h1>Tech store</h1>
+<p>Welcome to our Tech store!</p>
+
+<button type="button" id="btn-all">All</button>
+<button type="button" id="btn-laptops">Laptops</button>
+<button type="button" id="btn-accessories">Accessories</button>
+
+<div id="product-container">
+
+
+
+</div>
+
+</body>
+</html>
+
+<style>
+
+    #product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p {
+  color: rgb(1, 1, 81);
+  font-family: verdana;
+  font-size: 200%;
+}
+
+#product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  width: 200px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+.out-of-stock {
+  opacity: 0.5;
+  background-color: #e0e0e0;
+  color: #b00000;
+}
+
+
+</style>
+
+<script> const products = [
+  { id: 1, name: "Pro Laptop", price: 1200, category: "Laptops", inStock: true },
+  { id: 2, name: "Wireless Mouse", price: 45, category: "Accessories", inStock: true },
+  { id: 3, name: "Mechanical Keyboard", price: 150, category: "Accessories", inStock: false },
+  { id: 4, name: "Budget Laptop", price: 600, category: "Laptops", inStock: true },
+  { id: 5, name: "USB-C Hub", price: 30, category: "Accessories", inStock: true },
+];
+
+function renderProducts(items) {
+  const container = document.getElementById("product-container");
+  container.innerHTML = "";
+
+  container.innerHTML = items.map(product => {
+    const cardClass = product.inStock ? "product-card" : "product-card out-of-stock";
+    const priceDisplay = product.inStock ? `$${product.price}` : "Out of Stock";
+
+    return `
+      <div class="${cardClass}">
+        <h3>${product.name}</h3>
+        <p>${priceDisplay}</p>
+      </div>
+    `;
+  }).join("");
+}
+
+renderProducts(products);
+
+document.getElementById("btn-all").addEventListener("click", () => {
+  renderProducts(products);
+});
+
+document.getElementById("btn-laptops").addEventListener("click", () => {
+  const filtered = products.filter(product => product.category === "Laptops");
+  renderProducts(filtered);
+});
+
+document.getElementById("btn-accessories").addEventListener("click", () => {
+  const filtered = products.filter(product => product.category === "Accessories");
+  renderProducts(filtered);
+});
+
+</script>
+
