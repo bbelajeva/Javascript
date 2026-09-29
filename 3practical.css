@@ -1,0 +1,11 @@
+body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+.form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+input, button { padding: 0.5rem; }
+button { cursor: pointer; }
+button :hover { background: #d8c0ce; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ffffff; padding: 0.5rem; text-align: left; }
+th { background: #d8c0ce; }
+h1 { font-size: 2rem; margin-bottom: 1rem; }
+h1 { text-align: center; }
+h1 { color: #d8c0ce; }
